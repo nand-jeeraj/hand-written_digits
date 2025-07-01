@@ -1,71 +1,52 @@
-# Handwritten Digit Recognition using Machine Learning
+# Handwritten Digit Recognition using KNN and PCA (Flask Deployment with MNIST)
 
-This project involves building a machine learning model to recognize handwritten digits (0–9) from image data. The model is trained using the popular **MNIST** dataset and demonstrates how classification algorithms can be applied to image recognition tasks.
+This project is a web application that recognizes handwritten digits using a machine learning model built with K-Nearest Neighbors (KNN) and Principal Component Analysis (PCA). The model is trained on the MNIST dataset and deployed using the Flask web framework.
 
----
+## Project Overview
 
-## Objective
+The goal is to classify digits (0–9) from 28x28 pixel grayscale images using traditional machine learning techniques and provide predictions through a web interface built with Flask.
 
-The goal is to develop an image classification model that can accurately recognize handwritten digits from pixel-based image inputs using traditional machine learning techniques.
+## Technologies Used
 
----
+- Python
+- Flask
+- scikit-learn
+- numpy
+- pandas
+- matplotlib
+- pickle
+- HTML/CSS (Jinja2 templates)
 
 ## Dataset
 
-- **Name**: MNIST Handwritten Digit Dataset  
-- **Source**: Available via `sklearn.datasets` or `keras.datasets`
-- **Details**:
-  - 70,000 grayscale images (60,000 training, 10,000 testing)
-  - Each image is 28x28 pixels representing digits 0 through 9
+- **Dataset:** [MNIST](http://yann.lecun.com/exdb/mnist/)
+- 60,000 training images and 10,000 test images
+- Each image is 28x28 pixels in grayscale, flattened into a 784-dimensional vector for processing
 
----
+## ML Workflow
 
-## Tools & Technologies
+1. Load and preprocess MNIST dataset
+   - Normalize pixel values
+   - Flatten 28x28 images into 1D vectors (784 features)
+2. Reduce dimensions using PCA (e.g., to 50 components)
+3. Train a KNN classifier
+4. Evaluate model on test data
+5. Save the PCA and KNN models using pickle
+6. Integrate models into Flask app for prediction
 
-| Technology     | Purpose                          |
-|----------------|----------------------------------|
-| Python         | Programming language             |
-| scikit-learn   | ML model training and evaluation |
-| pandas, numpy  | Data manipulation                |
-| matplotlib     | Visualization                    |
-| seaborn        | Plotting confusion matrix, graphs|
+## Features
 
----
+- Upload or draw a digit image for real-time prediction
+- Uses dimensionality reduction (PCA) for faster inference
+- Simple, interactive web interface powered by Flask
 
-## Model Used
+## Results
 
-- **K-Nearest Neighbors (KNN)**
-  - Instance-based learning algorithm
-  - Predicts based on majority class among k nearest neighbors
-- Optional: Logistic Regression, SVM, or Neural Network (can be added)
+- Achieved accuracy of around 96–98% using KNN after PCA
+- Fast prediction due to reduced feature dimensions
 
----
+## Key Learning Points
 
-## Workflow
-
-1. Load and preprocess the dataset
-2. Flatten the images (28x28 → 784 features)
-3. Split the data into training and test sets
-4. Train the KNN model
-5. Evaluate using accuracy score and confusion matrix
-6. 6. Visualize predictions and results
-
----
-
-## How to Run bash
-# Clone the repository
-git clone https://github.com/nand-jeeraj/hand-written_digits/
-cd handwritten-digit-recognition
-
-
-
-
-Confusion matrix and misclassified digits visualized
-
-Sample digit predictions plotted
-
-Results
-High accuracy achieved with minimal preprocessing
-
-Model performs well on unseen test images
-
+- How to use PCA for high-dimensional image data
+- Training and saving ML models using pickle
+- Creating a full-stack machine learning application with Flask
