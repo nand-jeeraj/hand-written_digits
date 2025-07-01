@@ -15,7 +15,7 @@ The goal is to classify digits (0–9) from 28x28 pixel grayscale images using t
 - pandas
 - matplotlib
 - pickle
-- HTML/CSS (Jinja2 templates)
+- HTML
 
 ## Dataset
 
