@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digit Recognition</title>
+</head>
+<body>
+    <h1>Upload a Handwritten Digit Image</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction is defined %}
+        <h2>Predicted Digit: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
